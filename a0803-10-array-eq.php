@@ -36,7 +36,7 @@ echo'<br>-----------<br>';
 ?>
 </pre>
 
-php array、 set by value & set by address(與js的比較)
+
 
 
 
