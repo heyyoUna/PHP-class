@@ -23,7 +23,7 @@
     <tr>
         
     <?php for($k=1; $k<=9; $k++): ?>
-        <td><?= sprintf('%s * %s = %s', $i, $k, $i*$k) ?></td>
+        <td><?= "$i * $k =". $i*$k ?></td>
     <?php endfor ?>
 
     </tr>
