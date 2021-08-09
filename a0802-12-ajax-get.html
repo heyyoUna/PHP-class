@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #result{
+            width: 50px;
+            height: 50px;
+            background-color: bisque;
+            position: relative;
+            margin: 5px;
+            border: 5px solid rgb(253, 220, 180);
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<form onsubmit="ajaxsend(); return false">
+    <input type="number" name="a" placeholder="a"> +
+    <input type="number" name="b" placeholder="b">
+    <button>=</button> 
+    <div id="result"></div>
+    <!-- <span id="result"></span> -->
+</form>
+<!-- 
+    onsubmit 在事件(表單中的確認鈕)被觸發時發生(對輸入框的內容做檢查)，
+    return false 讓表單「不要」被送出(提交到另一頁面)。
+    在button 加入typle="button"，可取代 ajaxsend()。
+
+    一般Web流程：用戶端填寫表單並送出 -> 向伺服器傳送請求 -> 伺服器接收並處理 -> 回傳一個「新」的頁面 ->頁面持續更新，增加伺服器負荷。    
+    AJAX是「Asynchronus JavaScript and XML」的簡寫，即非同步JavaScript與XML技術；不需重新載入「整」個網頁的情況下，能夠更新「部分」網頁 -> 提高網頁速度
+    https://www.footmark.info/programming-language/php/ajax-javascript-jquery-example-php/
+-->
+
+<br>
+<script>
+    const af = document.querySelector('input[name=a]');
+    const bf = document.querySelector('input[name=b');
+    const result = document.querySelector('#result');
+
+    function ajaxsend(){
+        console.log(af.value, bf.value);
+        const a = af.value;
+        const b = bf.value;
+
+
+        //1
+        const xhr = new XMLHttpRequest();   
+
+        //2
+        xhr.onload = function(){
+            result.innerHTML = xhr.responseText; //將結果顯示在div內
+        }
+
+        //3
+        xhr.open('GET', `a0802-08-query-string.php?a=${a}&b=${b}`); //用open去告訴大家，用get去放
+        xhr.send(); //呼叫send才是真正的發生(發送)
+
+
+        // 共三階段動作(1)建立Xhr的動作 (2)設定事件處理器 (3)open發送(把值塞到url裡面)
+    }
+
+
+    // XML(Extensible Markup Language)為可擴充套件標記語言，可以用來儲存資料、做資料交換，為應用軟體提示資料等。與HTML一樣，都是SGML(Standard Generalized Markup Language,標準通用標記語言)。
+
+</script>
+</body>
+</html>
