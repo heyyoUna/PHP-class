@@ -33,13 +33,21 @@ foreach($ar as $key => $value){
     echo "$key => $value <br>";}
 // $key & $value 都是自定義變數
 //沒有key值的孩子，將依順序，用從0開始的數字補上
-
 echo '-------------<br>';
 
-echo count($ar); 
+echo count($ar).'<br>'; 
 //count 找出陣列的長度；此處混用索引式、關聯式，在foreach迴圈下也會將關聯式陣列納入計算(反之，for不會)
 //盡量不要混用索引式、關聯式!!
 //php陣列，建議使用foreach減少for
+
+echo '-------------<br>';
+$arU =[
+    3 => 'abc',
+    "3" => 'cdf'
+];
+foreach($arU as $U){
+    echo "$U <br>";  }
+//用整數當作key在底層時，會轉換為字串；所以key:3會被"3"取代  
 
 
 
