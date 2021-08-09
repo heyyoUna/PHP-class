@@ -33,7 +33,7 @@ echo '<br>-------------------<br>';
 
 echo json_encode($ar, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); 
 // 同時設定不跳拖中文字＆ slashes，在中間加'+' 或是'|' (位元運算值的or)
-echo '<br>-------------------<br>';
+echo '<br>------------------<br>';
 
 
 
