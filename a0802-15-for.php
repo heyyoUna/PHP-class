@@ -25,7 +25,7 @@
             <td><?php echo $i; ?></td> 
     
             <td><?= sprintf('%s * %s = %s', $i, $i, $i*$i) ?></td>
-            <!-- sprintf 回傳字串; printf直接輸出字串，兩者用法一樣 -->
+            <!-- sprintf 回傳字串; printf會輸出字串，兩者用法一樣 -->
             <!-- %s代表字串，用來佔位置，讓後面的資料對齊填入 -->
             <!-- 定義 https://www.php.net/manual/en/function.sprintf.php -->
         
