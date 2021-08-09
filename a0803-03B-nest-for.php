@@ -23,10 +23,11 @@
         <?php for($i=1; $i<=9; $i++): ?>
         <tr>
             <?php for($k=1; $k<=9; $k++): ?>
-            <td><?php printf('%s * %s = %s', $k, $i, $k*$i) ?></td>
+            <td><?php printf('&nbsp;%s * %s = %s&nbsp;', $k, $i, $k*$i) ?></td>
 
             <!-- sprintf 回傳字串，printf會輸出字串；
-            ?= 代表php echo，若搭配printf，在echo的作用下，會在結尾補上字元長度的數值(等號前面的空格也算)  -->
+            ?= 代表php echo，若搭配printf，在echo的作用下，會在結尾補上字元長度的數值(等號前面的空格也算)；
+            為排版好看，透過&nbsp;加上空格  -->
             <?php endfor ?>
         
         </tr>
