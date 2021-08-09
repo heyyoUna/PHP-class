@@ -12,8 +12,7 @@ $ar = json_decode($str, true);  //轉換為關聯式陣列
 //回傳預設是objects
 
 
-
-print_r($obj);`
+print_r($obj);
 echo'<br>-------<br>';
 print_r($ar);
 echo'<br>-------<br>';
@@ -21,7 +20,7 @@ echo'<br>-------<br>';
 echo $obj -> name; //物件的屬性
 echo'<br>-------<br>';
 echo $ar['name']; //陣列的元素值
-echo'<br>-------<br>';
+
 
 
 
