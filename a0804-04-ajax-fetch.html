@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<form name="form1" onsubmit="sendData(); return false;">
+    <input type="number" name="a" placeholder="a"> +
+    <input type="number" name="b" placeholder="b">
+    <!-- 此處重點是name，name一定要輸入 -->
+    <button>=</button>
+</form>
+
+<div id="info"></div>
+
+
+<script>
+    function sendData(){
+        const fd = new FormData(document.form1); //formdata為表單的物件
+        //將有形體的表單(form1)當作參數，放入formData，可一次抓取form1內'全部'有效欄位。
+        // 已告訴body內容為formdata，將會自動帶入預設content-type(不須另外設定)
+        fetch('a0804-02B-post-data.php',{
+            method: 'POST', //header
+            body: fd, 
+
+        }).then(function(response){    
+            //then後面加call back function；透過post收到資料後，會去呼叫function()；response代表回應的物件，但與responseText不同，沒辦法直接拿到內部內容，所以需要return
+            return response.text();
+        }).then(function(txt){
+            info.innerText = txt;
+        });
+
+        // fetch (v.) to another place to bring sth./sb. back
+        //fetch 固定後面會有兩個then！！
+        // fetch會拿到promise物件，promise物件可以下then(資料取得後在then內接收)。
+
+        // 整個fetch變數為非同步操作，所以要給call back function，完成後再去呼叫第一個then後面的function；
+        // 在呼叫response.text()時（代表要去拿text裡面的內容），又是一個promise物件，再接第二個then，最後結果會回傳給設定的(txt)。
+
+
+
+
+
+    }
+</script>
+
+<!-- 
+form標籤的表格，會有外觀，有形體的表格，可以用傳統方式發送；
+formData資料會儲存在記憶體，沒有外觀，無法自行發送，須透過xml/http request/ fetch等。 
+php中的字串or變數連結，使用點符號'.'。 -->
+
+
+
+</body>
+</html>
+
+
+
+
