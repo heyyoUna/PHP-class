@@ -20,7 +20,7 @@
 post 沒辦法透過a的連結發送 -->
 
 <!-- 送出後，跳轉到action的檔案
-    -> 檢查 -> network -> name底下php檔 -> headers -> form data ->原始格式為url encoded ;
+    -> 檢查 -> network -> name底下php檔 -> headers -> request header ->原始格式為url encoded ;
     正常回應下，http的header(檔頭)會有兩個：response headers ＆ request headers;
 
     http的方法，在發request時，會被記錄在request headers的最前面，例如. POST /test/a0804-02-post-data.php HTTP/1.1，使用post/檔案位置/ post 的對象/ http的版本。
