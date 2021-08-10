@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<form action="a0804-02-post-data.php" method="POST">
+    <input type="number" name="a" placeholder="a"> +
+    <input type="number" name="b" placeholder="b">
+    <button>=</button>
+</form>
+
+<br>
+<!-- <a href="a0802-08-query-string.php?a=10&b=20">算 10 加 20</a>
+post 沒辦法透過a的連結發送 -->
+
+<!-- 送出後，跳轉到action的檔案
+    -> 檢查 -> network -> name底下php檔 -> headers -> form data ->原始格式為url encoded ;
+    正常回應下，http的header(檔頭)會有兩個：response headers ＆ request headers;
+
+    http的方法，在發request時，會被記錄在request headers的最前面，例如. POST /test/a0804-02-post-data.php HTTP/1.1，使用post/檔案位置/ post 的對象/ http的版本。
+     -->
+
+<!-- server僅在用戶端發出request後，被動回應，不能主動送資料給用戶端。
+    在http的request檔案，包含headers & body；
+    使用get時，僅有header(沒有body)，資料塞在header的url內；
+    使用post時，會同時有header & body；此body是http文件的body，與html的body無關；
+    「header: post的方法, body：要post的資料。」
+    在respone的檔案，同樣包含headers & body; 
+圖解(p.2) https://tinyurl.com/6bwh7694 -->
+
+<!--Content-Type: text/html; charset=UTF-8 -> 預設的檔案格式 ; 編碼。 
+     Content-Type:在post功能下，為瀏覽器告訴伺服器(server)，目前request檔案的格式，預設為text/html，表單的預設為url encoded;
+    另一種對應的類型為mime type。 -->
+
+<!-- 「方法」在物件導向代表method或function；http的方法，為標示在發送時使用的方法 -->
+
+
+
+
+
+
+<!-- placeHolder 是放在input 文字輸入欄位內的輔助屬性-->
+<!-- method = get / post; 
+get: 傳送的值藉由GET請求URL發送，資料放在header傳送，會在網址列看到
+post: 傳送的值藉由POST請求HTTP發送，資料放在訊息主體內傳送，不會被cache紀錄，較安全 -->
+
+
+</body>
+</html>
+
+
+
+
