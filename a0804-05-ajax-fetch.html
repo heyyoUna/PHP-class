@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<form name="form1" onsubmit="sendData(); return false;">
+    <input type="number" name="a" placeholder="a"> +
+    <input type="number" name="b" placeholder="b">
+    <!-- 此處重點是name，name一定要輸入 -->
+    <button>=</button>
+</form>
+
+<div id="info"></div>
+
+<!-- 箭頭函數 -->
+
+<script>
+
+    function sendData(){
+        const fd = new FormData(document.form1);
+        fetch('a0804-02B-post-data.php',{
+            method:'POST',
+            body: fd, // Content-Type預設為 multipart/form-data;
+        })
+        .then(r=>r.text())  //拿到一個response物件，再呼叫response.text
+        .then(txt=>{        //解析後的內容，會在txt
+            info.innerText = txt;        
+        });
+    }
+
+
+        // .then(function(response){return response.text();})
+        // .then(function(txt){info.innerText = txt; });
+
+
+//透過箭頭函數減少「形式參數」
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
+
+
+
+
