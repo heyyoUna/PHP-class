@@ -26,7 +26,7 @@
         // 已告訴body內容為formdata，將會自動帶入預設content-type(不須另外設定)
         fetch('a0804-02B-post-data.php',{
             method: 'POST', //header
-            body: fd, 
+            body: fd,  // 預設的Content-Type 為 multipart/form-data
 
         }).then(function(response){    
             //then後面加call back function；透過post收到資料後，會去呼叫function()；response代表回應的物件，但與responseText不同，沒辦法直接拿到內部內容，所以需要return
