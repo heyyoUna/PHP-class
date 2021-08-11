@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #result{
+            width: 50px;
+            height: 50px;
+            background-color: bisque;
+            position: relative;
+            margin: 5px;
+            border: 5px solid rgb(253, 220, 180);
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<form onsubmit="ajaxsend(); return false">
+    <input type="number" name="a" placeholder="a"> +
+    <input type="number" name="b" placeholder="b">
+    <button>=</button>  <div id="result"></div>
+    <!-- <span id="result"></span> -->
+</form>
+<!-- 
+    onsubmit 在事件(表單中的確認鈕)被觸發時發生(對輸入框的內容做檢查)，
+    return false 讓表單「不要」被送出(提交到另一頁面)。
+    在button 加入typle="button"，可取代 ajaxsend()。
+
+    一般Web流程：用戶端填寫表單並送出 -> 向伺服器傳送請求 -> 伺服器接收並處理 -> 回傳一個「新」的頁面 ->頁面持續更新，增加伺服器負荷。    
+    AJAX是「Asynchronus JavaScript and XML」的簡寫，即非同步JavaScript與XML技術；不需重新載入「整」個網頁的情況下，能夠更新「部分」網頁 -> 提高網頁速度
+    https://www.footmark.info/programming-language/php/ajax-javascript-jquery-example-php/
+-->
+
+<br>
+<script>
+    // 比較 a0802-12-ajax-get.html
+    const af = document.querySelector('input[name=a]');
+    const bf = document.querySelector('input[name=b');
+    const result = document.querySelector('#result');
+
+    function ajaxsend(){
+        const sp = new URLSearchParams();
+        sp.set('a', af.value);
+        sp.set('b', bf.value);
+
+        fetch('a0802-08-queryString.php?' + sp.toString() ) //不用body，放url即可
+            .then(r=>r.text()) //這邊是text，所以後面是txt；如果是json，後面會是obj
+            .then(txt=>{
+                result.innerText = txt; //將結果顯示在前面設定的div #result 
+            });
+    }
+
+    //原始寫法
+     //1   
+     // const xhr = new XMLHttpRequest();   
+
+    //2    
+    // xhr.onload = function(){
+    // result.innerHTML = xhr.responseText;   }
+
+    //3
+    // xhr.open('GET', 'a0802-08-queryString.php?' + sp.toString() ); 
+    // xhr.send(); 
+    //fetch 預設的方法就是get
+
+
+
+
+</script>
+</body>
+</html>
