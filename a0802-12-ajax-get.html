@@ -25,8 +25,7 @@
 <form onsubmit="ajaxsend(); return false">
     <input type="number" name="a" placeholder="a"> +
     <input type="number" name="b" placeholder="b">
-    <button>=</button> 
-    <div id="result"></div>
+    <button>=</button>  <div id="result"></div>
     <!-- <span id="result"></span> -->
 </form>
 <!-- 
@@ -46,10 +45,9 @@
     const result = document.querySelector('#result');
 
     function ajaxsend(){
-        console.log(af.value, bf.value);
-        const a = af.value;
-        const b = bf.value;
-
+        const sp = new URLSearchParams();
+        sp.set('a', af.value);
+        sp.set('b', bf.value);
 
         //1
         const xhr = new XMLHttpRequest();   
@@ -60,7 +58,7 @@
         }
 
         //3
-        xhr.open('GET', `a0802-08-query-string.php?a=${a}&b=${b}`); //用open去告訴大家，用get去放
+        xhr.open('GET', 'a0802-08-queryString.php?' + sp.toString() ); //用open去告訴大家，用get去放
         xhr.send(); //呼叫send才是真正的發生(發送)
 
 
