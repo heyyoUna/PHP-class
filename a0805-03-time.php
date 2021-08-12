@@ -24,6 +24,7 @@
     ?>
 </h2>
 
-<!-- 改變電腦預設時區：找到檔案 /xamppfiles/etc/xampp/php.ini
-註解預設的 date.timezone=Europe/Berlin
-寫入 date.timezone=Asia/Taipei -->
+<!-- 改變電腦預設時區：
+1. 找到檔案 /xamppfiles/etc/xampp/php.ini
+2. 註解預設的 date.timezone=Europe/Berlin
+3. 寫入 date.timezone=Asia/Taipei -->
