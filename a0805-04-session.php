@@ -6,6 +6,8 @@ if(! isset($_SESSION['num'])){  //! 代表not
 } else {
     $_SESSION['num'] ++;
 }
+// unset($_SESSION['num']); // 刪掉某個 session 變數
+
 
 // 預設情況下，session 是關閉的，減少消耗資源 
 // 跟cookie一樣，設定在檔頭，因此要放在html前面
