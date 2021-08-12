@@ -7,11 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-<?=  ?> 
+<?= isset($_COOKIE['my_cookie']) ? $_COOKIE['my_cookie'] : '' ?> 
 
-<!-- 第一次送出後，會顯示undefined，因為cookie僅在我們寫入的response headers，還未寫入request headers(php尚未被設定好)；
-第二次(頁面重新整理)，就會出現1，cookie已被帶入request headers。
- -->
+<!-- cookie的設定，可以跨頁面，在01檔案設定，在02檔案讀取；
+在檢查的application 可以清掉cookie；
+session (n.) 一段時間(會議/集會);
+在cookie expires的session指，現在開一個頁面，如果關機或關閉瀏覽器，此session即結束-->
     
 </body>
 </html>
